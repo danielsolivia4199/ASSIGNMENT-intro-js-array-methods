@@ -71,8 +71,8 @@ const buttonFilter = (event) => {
     </thead>
     <tbody>
     `;
-    
-    productList().forEach(item => {
+    //look up localeCompare(), sort puts things in abc order
+    productList().sort((a,b) => a.type.localeCompare(b.type)).forEach(item => {
       table += tableRow(item);
     });
 
@@ -93,6 +93,8 @@ const cartTotal = () => {
 
   if (free) {
     document.querySelector('#includes-free').innerHTML = 'INCLUDES FREE ITEMS'
+  } else {
+    document.querySelector('#includes-free').innerHTML = ''
   }
 }
 
